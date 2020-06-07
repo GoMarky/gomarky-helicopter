@@ -22,7 +22,7 @@ def start_app():
 
     power_b = GPIO.PWM(input_b, 500)
 
-    power_b.start(15)
+    power_b.start(50)
 
     while True:
         duty_s = input('Enter speed from 0 to 100')
