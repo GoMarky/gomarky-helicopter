@@ -1,5 +1,4 @@
 import RPi.GPIO as GPIO
-import time
 
 
 def get_pin_number(port_number):
@@ -12,23 +11,23 @@ def check_gpio_is_enabled(port_number):
     return channel_is_on
 
 
-gpio_port_number = get_pin_number(18)
+input_a = get_pin_number(15)
+input_b = get_pin_number(18)
 
 
 def start_app():
     GPIO.setmode(GPIO.BCM)
-    GPIO.setup(gpio_port_number, GPIO.OUT)
+    GPIO.setup(input_a, GPIO.OUT)
+    GPIO.setup(input_b, GPIO.OUT)
 
-    if check_gpio_is_enabled():
-        print('Gpio pin was enabled')
-        GPIO.output(gpio_port_number, gpio_port_number)
+    power_b = GPIO.PWM(input_b, 500)
+
+    power_b.start(15)
 
     while True:
-        GPIO.output(gpio_port_number, True)
-        time.sleep(1)
-
-        GPIO.output(gpio_port_number, False)
-        time.sleep(1)
+        duty_s = input('Enter speed from 0 to 100')
+        duty = int(duty_s)
+        power_b.ChangeDutyCycle(duty)
 
 
 try:
