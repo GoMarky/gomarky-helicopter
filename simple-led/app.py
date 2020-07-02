@@ -19,7 +19,7 @@ def start_app():
     GPIO.setmode(GPIO.BCM)
     GPIO.setup(gpio_port_number, GPIO.OUT)
 
-    if check_gpio_is_enabled():
+    if check_gpio_is_enabled(gpio_port_number):
         print('Gpio pin was enabled')
         GPIO.output(gpio_port_number, gpio_port_number)
 
@@ -38,4 +38,4 @@ except Exception as e:
     GPIO.cleanup()
 
 finally:
-    GPIO.cleanup
+    GPIO.cleanup()
