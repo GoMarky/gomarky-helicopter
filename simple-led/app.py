@@ -12,7 +12,7 @@ def check_gpio_is_enabled(port_number):
     return channel_is_on
 
 
-gpio_port_number = get_pin_number(18)
+gpio_port_number = get_pin_number(25)
 
 
 def start_app():
