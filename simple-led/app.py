@@ -2,32 +2,28 @@ import RPi.GPIO as GPIO
 import time
 
 
-def get_pin_number(port_number):
-    return port_number
-
-
 def check_gpio_is_enabled(port_number):
     channel_is_on = GPIO.input(port_number)
 
     return channel_is_on
 
 
-gpio_port_number = get_pin_number(25)
+led_pin = 25
 
 
 def start_app():
     GPIO.setmode(GPIO.BCM)
-    GPIO.setup(gpio_port_number, GPIO.OUT)
+    GPIO.setup(led_pin, GPIO.OUT)
 
-    if check_gpio_is_enabled(gpio_port_number):
+    if check_gpio_is_enabled(led_pin):
         print('Gpio pin was enabled')
-        GPIO.output(gpio_port_number, gpio_port_number)
+        GPIO.output(led_pin, led_pin)
 
     while True:
-        GPIO.output(gpio_port_number, True)
+        GPIO.output(led_pin, True)
         time.sleep(1)
 
-        GPIO.output(gpio_port_number, False)
+        GPIO.output(led_pin, False)
         time.sleep(1)
 
 
