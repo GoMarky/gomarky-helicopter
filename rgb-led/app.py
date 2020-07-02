@@ -29,4 +29,4 @@ except Exception as e:
     GPIO.cleanup()
 
 finally:
-    GPIO.cleanup
+    GPIO.cleanup()
