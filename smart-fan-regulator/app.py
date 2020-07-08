@@ -92,6 +92,8 @@ def start_app():
     while True:
         distance = get_distance()
 
+        print('distance: ' + str(distance) + ' cm')
+
         convert_distance_to_speed(distance)
 
         time.sleep(0.5)
