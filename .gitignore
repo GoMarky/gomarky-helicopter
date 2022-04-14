@@ -1,2 +1,4 @@
 .AppleDouble
 .idea
+venv
+cmake-build-debug
